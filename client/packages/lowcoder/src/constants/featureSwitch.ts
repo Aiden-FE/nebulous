@@ -11,4 +11,7 @@ export const featureSwitch = {
   AppPreloadEnabled: true,
 
   QueryLibraryEnabled: true,
+
+  // 论文开关控制
+  EnabledPaperMode: true,
 };

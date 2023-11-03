@@ -126,6 +126,7 @@ import { MentionComp } from "./comps/textInputComp/mentionComp";
 import { AutoCompleteComp } from "./comps/autoCompleteComp/autoCompleteComp"
 //Added by Aqib Mirza
 import { JsonLottieComp } from "./comps/jsonComp/jsonLottieComp";
+import {featureSwitch} from "@lowcoder-ee/constants/featureSwitch";
 
 type Registry = {
   [key in UICompType]?: UICompManifest;
@@ -213,7 +214,7 @@ const uiCompMap: Registry = {
       h: 5,
     },
   },
-  rating: {
+  rating: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.ratingCompName"),
     enName: "Rating",
     description: trans("uiComp.ratingCompDesc"),
@@ -221,7 +222,7 @@ const uiCompMap: Registry = {
     icon: RatingCompIcon,
     keywords: trans("uiComp.ratingCompKeywords"),
     comp: RatingComp,
-  },
+  } : undefined,
   switch: {
     name: trans("uiComp.switchCompName"),
     enName: "Switch",
@@ -292,7 +293,7 @@ const uiCompMap: Registry = {
       h: 7,
     },
   },
-  segmentedControl: {
+  segmentedControl: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.segmentedControlCompName"),
     enName: "Segmented Control",
     description: trans("uiComp.segmentedControlCompDesc"),
@@ -300,8 +301,8 @@ const uiCompMap: Registry = {
     icon: SegmentedCompIcon,
     keywords: trans("uiComp.segmentedControlCompKeywords"),
     comp: SegmentedControlComp,
-  },
-  file: {
+  } : undefined,
+  file: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.fileUploadCompName"),
     enName: "File Upload",
     description: trans("uiComp.fileUploadCompDesc"),
@@ -309,7 +310,7 @@ const uiCompMap: Registry = {
     icon: UploadCompIcon,
     keywords: trans("uiComp.fileUploadCompKeywords"),
     comp: FileComp,
-  },
+  } : undefined,
   date: {
     name: trans("uiComp.dateCompName"),
     enName: "Date",
@@ -376,7 +377,7 @@ const uiCompMap: Registry = {
     },
     withoutLoading: true,
   },
-  link: {
+  link: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.linkCompName"),
     enName: "Link",
     description: trans("uiComp.linkCompDesc"),
@@ -384,7 +385,7 @@ const uiCompMap: Registry = {
     icon: LinkCompIcon,
     keywords: trans("uiComp.linkCompKeywords"),
     comp: LinkComp,
-  },
+  } : undefined,
   dropdown: {
     name: trans("uiComp.dropdownCompName"),
     enName: "Dropdown",
@@ -427,7 +428,7 @@ const uiCompMap: Registry = {
     defaultDataFn: defaultTableData,
     withoutLoading: true,
   },
-  image: {
+  image: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.imageCompName"),
     enName: "Image",
     description: trans("uiComp.imageCompDesc"),
@@ -439,8 +440,8 @@ const uiCompMap: Registry = {
       w: 5,
       h: 24,
     },
-  },
-  progress: {
+  } : undefined,
+  progress: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.progressCompName"),
     enName: "Progress",
     description: trans("uiComp.progressCompDesc"),
@@ -448,8 +449,8 @@ const uiCompMap: Registry = {
     icon: ProgressCompIcon,
     keywords: trans("uiComp.progressCompKeywords"),
     comp: ProgressComp,
-  },
-  progressCircle: {
+  } : undefined,
+  progressCircle: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.progressCircleCompName"),
     enName: "Process Circle",
     description: trans("uiComp.progressCircleCompDesc"),
@@ -461,8 +462,8 @@ const uiCompMap: Registry = {
       w: 4,
       h: 19,
     },
-  },
-  fileViewer: {
+  } : undefined,
+  fileViewer: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.fileViewerCompName"),
     enName: "File Viewer",
     description: trans("uiComp.fileViewerCompDesc"),
@@ -470,8 +471,8 @@ const uiCompMap: Registry = {
     icon: FileViewerCompIcon,
     keywords: trans("uiComp.fileViewerCompKeywords"),
     comp: FileViewerComp,
-  },
-  divider: {
+  } : undefined,
+  divider: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.dividerCompName"),
     enName: "Divider",
     description: trans("uiComp.dividerCompDesc"),
@@ -483,8 +484,8 @@ const uiCompMap: Registry = {
       w: 14,
       h: 1,
     },
-  },
-  qrCode: {
+  } : undefined,
+  qrCode: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.qrCodeCompName"),
     enName: "QR Code",
     description: trans("uiComp.qrCodeCompDesc"),
@@ -496,8 +497,8 @@ const uiCompMap: Registry = {
       w: 4,
       h: 19,
     },
-  },
-  form: {
+  } : undefined,
+  form: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.formCompName"),
     enName: "Form",
     description: trans("uiComp.formCompDesc"),
@@ -513,8 +514,8 @@ const uiCompMap: Registry = {
       delayCollision: true,
     },
     defaultDataFn: defaultFormData,
-  },
-  jsonSchemaForm: {
+  } : undefined,
+  jsonSchemaForm: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.jsonSchemaFormCompName"),
     enName: "JSON Schema Form",
     description: trans("uiComp.jsonSchemaFormCompDesc"),
@@ -526,7 +527,7 @@ const uiCompMap: Registry = {
       w: 8,
       h: 50,
     },
-  },
+  } : undefined,
   container: {
     name: trans("uiComp.containerCompName"),
     enName: "Container",
@@ -626,7 +627,7 @@ const uiCompMap: Registry = {
       h: 52,
     },
   },
-  custom: {
+  custom: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.customCompName"),
     enName: "Custom Component",
     description: trans("uiComp.customCompDesc"),
@@ -638,8 +639,8 @@ const uiCompMap: Registry = {
       w: 9,
       h: 26,
     },
-  },
-  module: {
+  } : undefined,
+  module: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.moduleCompName"),
     enName: "Module",
     icon: CustomCompIcon,
@@ -651,8 +652,8 @@ const uiCompMap: Registry = {
       w: 9,
       h: 26,
     },
-  },
-  jsonExplorer: {
+  } : undefined,
+  jsonExplorer: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.jsonExplorerCompName"),
     enName: "JSON Explorer",
     description: trans("uiComp.jsonExplorerCompDesc"),
@@ -664,8 +665,8 @@ const uiCompMap: Registry = {
       w: 10,
       h: 47,
     },
-  },
-  jsonEditor: {
+  } : undefined,
+  jsonEditor: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.jsonEditorCompName"),
     enName: "JSON Editor",
     description: trans("uiComp.jsonEditorCompDesc"),
@@ -677,7 +678,7 @@ const uiCompMap: Registry = {
       w: 10,
       h: 42,
     },
-  },
+  } : undefined,
   tree: {
     name: trans("uiComp.treeCompName"),
     enName: "Tree",
@@ -740,7 +741,7 @@ const uiCompMap: Registry = {
     comp: DrawerComp,
     withoutLoading: true,
   },
-  carousel: {
+  carousel: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.carouselCompName"),
     enName: "Carousel",
     description: trans("uiComp.carouselCompDesc"),
@@ -753,8 +754,8 @@ const uiCompMap: Registry = {
       w: 11,
       h: 25,
     },
-  },
-  collapsibleContainer: {
+  } : undefined,
+  collapsibleContainer: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.collapsibleContainerCompName"),
     enName: "Collapsible Container",
     description: trans("uiComp.collapsibleContainerCompDesc"),
@@ -770,8 +771,8 @@ const uiCompMap: Registry = {
       delayCollision: true,
     },
     defaultDataFn: defaultCollapsibleContainerData,
-  },
-  chart: {
+  } : undefined,
+  chart: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.chartCompName"),
     enName: "Chart",
     description: trans("uiComp.chartCompDesc"),
@@ -783,8 +784,8 @@ const uiCompMap: Registry = {
       w: 11,
       h: 35,
     },
-  },
-  imageEditor: {
+  } : undefined,
+  imageEditor: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.imageEditorCompName"),
     enName: "Image Editor",
     comp: remoteComp({ ...builtInRemoteComps, compName: "imageEditor" }),
@@ -796,8 +797,8 @@ const uiCompMap: Registry = {
       w: 15,
       h: 60,
     },
-  },
-  scanner: {
+  } : undefined,
+  scanner: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.scannerCompName"),
     enName: "Scanner",
     description: trans("uiComp.scannerCompDesc"),
@@ -805,8 +806,8 @@ const uiCompMap: Registry = {
     icon: ScannerIcon,
     keywords: trans("uiComp.scannerCompKeywords"),
     comp: ScannerComp,
-  },
-  calendar: {
+  } : undefined,
+  calendar: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.calendarCompName"),
     enName: "Calendar",
     description: trans("uiComp.calendarCompDesc"),
@@ -818,8 +819,8 @@ const uiCompMap: Registry = {
       w: 24,
       h: 60,
     },
-  },
-  signature: {
+  }: undefined,
+  signature: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.signatureCompName"),
     enName: "Signature",
     description: trans("uiComp.signatureCompDesc"),
@@ -831,9 +832,9 @@ const uiCompMap: Registry = {
       w: 9,
       h: 35,
     },
-  },
+  } : undefined,
   //Added by Aqib Mirza
-  jsonLottie: {
+  jsonLottie: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.jsonLottieCompName"),
     enName: "Lottie Animation",
     description: trans("uiComp.jsonLottieCompDesc"),
@@ -845,8 +846,8 @@ const uiCompMap: Registry = {
       w: 10,
       h: 47,
     },
-  },
-  timeline: {
+  }: undefined,
+  timeline: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.timelineCompName"),
     enName: "timeline",
     description: trans("uiComp.timelineCompDesc"),
@@ -858,8 +859,8 @@ const uiCompMap: Registry = {
       w: 13,
       h: 55,
     },
-  },
-  mention: {
+  } : undefined,
+  mention: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.mentionCompName"),
     enName: "mention",
     description: trans("uiComp.mentionCompDesc"),
@@ -867,8 +868,8 @@ const uiCompMap: Registry = {
     icon: MentionIcon,
     keywords: trans("uiComp.mentionCompKeywords"),
     comp: MentionComp,
-  },
-  autocomplete: {
+  } : undefined,
+  autocomplete: !featureSwitch.EnabledPaperMode ? {
     name: trans("uiComp.autoCompleteCompName"),
     enName: "autoComplete",
     description: trans("uiComp.autoCompleteCompDesc"),
@@ -880,12 +881,14 @@ const uiCompMap: Registry = {
       w: 7,
       h: 5,
     },
-  },
+  } : undefined,
 };
 
 export function loadComps() {
   const entries = Object.entries(uiCompMap);
   for (const [compType, manifest] of entries) {
-    registerComp(compType as UICompType, manifest);
+    if (compType && manifest) {
+      registerComp(compType as UICompType, manifest);
+    }
   }
 }

@@ -1,7 +1,7 @@
 import table from "./componentDocExtra/table.md?url";
 
 export const zh  = {
-productName: "Lowcoder",
+productName: "Nebula",
 productDesc: "快速构建内部工具,无任何限制",
 notSupportedBrowser: "您当前使用的浏览器可能存在兼容性问题.为了获得更好的用户体验,建议使用最新版本的Chrome浏览器",
 create: "创建",
@@ -981,7 +981,7 @@ selectInput: {
     valueDesc: "当前选择的值",
     selectedIndexDesc: "当前选择的值的索引,如果未选择任何值则为-1",
     selectedLabelDesc: "当前选择的值的标签",
-},  
+},
 file: {
     typeErrorMsg: "必须是一个带有有效文件大小单位的数字,或者是一个无单位的字节数.",
     fileEmptyErrorMsg: "上传失败.文件大小为空.",
@@ -1907,7 +1907,7 @@ userAuth: {
     passwordCheckLength: "至少 {min} 个字符",
     passwordCheckContainsNumberAndLetter: "必须包含字母和数字",
     passwordCheckSpace: "不能包含空格字符",
-    welcomeTitle: "🎉 欢迎使用 {productName} 🎉",
+    welcomeTitle: "🇨🇳 欢迎使用 {productName} 🇨🇳",
     inviteWelcomeTitle: "{username} 邀请您登录 {productName}",
     terms: "条款",
     privacy: "隐私政策",
@@ -2157,7 +2157,7 @@ componentDoc: {
     event: "事件",
     eventName: "事件名称",
     eventDesc: "描述",
-    mehtod: "方法",        
+    mehtod: "方法",
     methodUsage: "您可以通过方法与组件进行交互,并且可以在任何可以编写 JavaScript 的地方通过它们的名称调用它们.或者您可以通过事件的“控制组件”操作来调用它们.",
     methodName: "方法名称",
     methodDesc: "描述",

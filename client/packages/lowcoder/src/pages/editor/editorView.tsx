@@ -42,6 +42,7 @@ import { DefaultPanelStatus, getPanelStatus, savePanelStatus } from "util/localS
 import Bottom from "./bottom/BottomPanel";
 import { LeftContent } from "./LeftContent";
 import { isAggregationApp } from "util/appUtils";
+import {featureSwitch} from "@lowcoder-ee/constants/featureSwitch";
 
 const HookCompContainer = styled.div`
   pointer-events: none;
@@ -332,7 +333,7 @@ function EditorView(props: EditorViewProps) {
                 disabled={showAppSnapshot}
                 onClick={(params) => clickMenu(params)}
               />
-              {!showAppSnapshot && (
+              {!featureSwitch.EnabledPaperMode && !showAppSnapshot && (
                 <HelpDiv>
                   <HelpDropdown
                     showShortcutList={showShortcutList}
@@ -383,7 +384,7 @@ function EditorView(props: EditorViewProps) {
                 </EditorContainerWithViewMode>
               </EditorHotKeys>
             </EditorWrapper>
-            {panelStatus.bottom && <Bottom />}
+            {!featureSwitch.EnabledPaperMode && panelStatus.bottom && <Bottom />}
           </MiddlePanel>
           {showRight && (
             <RightPanel

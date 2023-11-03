@@ -55,6 +55,7 @@ import { foldersSelector } from "../../redux/selectors/folderSelector";
 import Setting from "pages/setting";
 import { TypographyText } from "../../components/TypographyText";
 import { messageInstance } from "lowcoder-design";
+import {featureSwitch} from "@lowcoder-ee/constants/featureSwitch";
 
 const TabLabel = styled.div`
   font-weight: 500;
@@ -395,7 +396,7 @@ export default function ApplicationHome() {
                   ) : (
                     <HomeQueryLibraryIcon {...otherProps} />
                   ),
-                visible: ({ user }) => user.orgDev,
+                visible: ({ user }) => !featureSwitch.EnabledPaperMode && user.orgDev,
               },
               {
                 text: <TabLabel>{trans("home.datasource")}</TabLabel>,
@@ -408,7 +409,7 @@ export default function ApplicationHome() {
                   ) : (
                     <HomeDataSourceIcon {...otherProps} />
                   ),
-                visible: ({ user }) => user.orgDev,
+                visible: ({ user }) => !featureSwitch.EnabledPaperMode && user.orgDev,
                 onSelected: (_, currentPath) => currentPath.split("/")[1] === "datasource",
               },
               {
@@ -422,14 +423,14 @@ export default function ApplicationHome() {
                   ) : (
                     <HomeSettingsIcon {...otherProps} />
                   ),
-                visible: ({ user }) => user.orgDev,
+                visible: ({ user }) => !featureSwitch.EnabledPaperMode && user.orgDev,
                 onSelected: (_, currentPath) => currentPath.split("/")[1] === "setting",
               },
             ],
           },
         ]}
       />
-      {user.orgDev && (
+      {!featureSwitch.EnabledPaperMode && user.orgDev && (
         <InviteDialog
           trigger={
             <InviteUser>

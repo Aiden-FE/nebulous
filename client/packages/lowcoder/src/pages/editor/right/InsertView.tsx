@@ -58,7 +58,7 @@ export default function InsertView(props: InsertViewProps) {
           onChange={(e) => setSearchValue(e.target.value)}
           allowClear={true}
         />
-        {featureSwitch.ModuleEnabled && (
+        {!featureSwitch.EnabledPaperMode && featureSwitch.ModuleEnabled && (
           <Segmented
             block
             options={options}
@@ -77,7 +77,7 @@ export default function InsertView(props: InsertViewProps) {
         <InsertViewBody>
           <ScrollBar>
             {activeKey === "ui" && <UICompPanel />}
-            {activeKey === "extension" && <ExtensionPanel />}
+            {!featureSwitch.EnabledPaperMode && activeKey === "extension" && <ExtensionPanel />}
           </ScrollBar>
         </InsertViewBody>
       </RightContext.Provider>

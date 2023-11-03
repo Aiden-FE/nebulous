@@ -39,6 +39,7 @@ import { HeaderStartDropdown } from "./headerStartDropdown";
 import { AppPermissionDialog } from "../../components/PermissionDialog/AppPermissionDialog";
 import { getBrandingConfig } from "../../redux/selectors/configSelectors";
 import { messageInstance } from "lowcoder-design";
+import {featureSwitch} from "@lowcoder-ee/constants/featureSwitch";
 
 const StyledLink = styled.a`
   display: flex;
@@ -290,8 +291,8 @@ export default function Header(props: HeaderProps) {
   const headerStart = (
     <>
       <StyledLink onClick={() => history.push(ALL_APPLICATIONS_URL)}>
-      {LOWCODER_SHOW_BRAND === 'true' ? 
-      LOWCODER_CUSTOM_LOGO_SQUARE !== "" ? <img src={LOWCODER_CUSTOM_LOGO_SQUARE } height={24} width={24} alt="logo" /> :<LogoIcon /> : 
+      {LOWCODER_SHOW_BRAND === 'true' ?
+      LOWCODER_CUSTOM_LOGO_SQUARE !== "" ? <img src={LOWCODER_CUSTOM_LOGO_SQUARE } height={24} width={24} alt="logo" /> :<LogoIcon /> :
       <LogoHome />}
       </StyledLink>
       {editName ? (
@@ -380,7 +381,7 @@ export default function Header(props: HeaderProps) {
           onVisibleChange={(visible) => !visible && setPermissionDialogVisible(false)}
         />
       )}
-      {canManageApp(user, application) && (
+      {!featureSwitch.EnabledPaperMode && canManageApp(user, application) && (
         <GrayBtn onClick={() => setPermissionDialogVisible(true)}>{SHARE_TITLE}</GrayBtn>
       )}
       <PreviewBtn buttonType="primary" onClick={() => preview(applicationId)}>
@@ -401,7 +402,7 @@ export default function Header(props: HeaderProps) {
                 dispatch(setShowAppSnapshot(true));
               }
             }}
-            items={[
+            items={featureSwitch.EnabledPaperMode ? [] : [
               {
                 key: "deploy",
                 label: <CommonTextLabel>{trans("header.deploy")}</CommonTextLabel>,
@@ -434,8 +435,8 @@ export function AppHeader() {
   const brandingConfig = useSelector(getBrandingConfig);
   const headerStart = (
     <StyledLink onClick={() => history.push(ALL_APPLICATIONS_URL)}>
-      {LOWCODER_SHOW_BRAND === 'true' ? 
-      LOWCODER_CUSTOM_LOGO !== "" ? <img src={LOWCODER_CUSTOM_LOGO}  height={28} alt="logo" /> :<LogoWithName branding={!user.orgDev} /> : 
+      {LOWCODER_SHOW_BRAND === 'true' ?
+      LOWCODER_CUSTOM_LOGO !== "" ? <img src={LOWCODER_CUSTOM_LOGO}  height={28} alt="logo" /> :<LogoWithName branding={!user.orgDev} /> :
       <LogoHome />}
     </StyledLink>
   );

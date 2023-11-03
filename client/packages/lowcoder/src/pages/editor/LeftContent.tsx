@@ -32,6 +32,7 @@ import { UICompType } from "comps/uiCompRegistry";
 import { CollapseWrapper, DirectoryTreeStyle, Node } from "./styledComponents";
 import { DataNode, EventDataNode } from "antd/lib/tree";
 import { isAggregationApp } from "util/appUtils";
+import {featureSwitch} from "@lowcoder-ee/constants/featureSwitch";
 
 const CollapseTitleWrapper = styled.div`
   display: flex;
@@ -499,12 +500,12 @@ export const LeftContent = (props: LeftContentProps) => {
         <BaseSection name={trans("leftPanel.components")} width={288} noMargin>
           <span className={leftCompListClassName}>{uiCollapse}</span>
         </BaseSection>
-        <BaseSection name={trans("leftPanel.modals")} width={288} noMargin>
+        {!featureSwitch.EnabledPaperMode && <BaseSection name={trans("leftPanel.modals")} width={288} noMargin>
           <span>{modalsCollapse}</span>
-        </BaseSection>
-        <BaseSection name={trans("leftPanel.queries")} width={288} noMargin>
+        </BaseSection>}
+        {!featureSwitch.EnabledPaperMode && <BaseSection name={trans("leftPanel.queries")} width={288} noMargin>
           <span>{bottomResCollapse}</span>
-        </BaseSection>
+        </BaseSection>}
         <BaseSection name={trans("leftPanel.globals")} width={288} noMargin>
           <span>{hookCompsCollapse}</span>
         </BaseSection>

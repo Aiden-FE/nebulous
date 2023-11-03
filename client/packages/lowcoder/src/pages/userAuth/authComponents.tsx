@@ -6,6 +6,7 @@ import styled from "styled-components";
 import ReactHotkeys from "util/hotkeys";
 import { StyledLink } from "pages/common/styledComponent";
 import { trans } from "i18n";
+import LoginBgImg from 'assets/images/neom-HYtBA9xDyfg-unsplash.jpg';
 
 const AuthCardContainer = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ const AuthCardContainer = styled.div`
   align-items: center;
   min-height: 100vh;
   height: 100%;
+  background: url(${LoginBgImg}) no-repeat;
   background-size: 100% 100%;
 `;
 
@@ -20,8 +22,8 @@ const AuthCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 480px;
-  background: #ffffff;
-  box-shadow: 0 0 20px 20px rgba(246, 248, 250, 0.85);
+  background: rgba(255, 255, 255, .7);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   padding: 28px 36px;
   margin-top: 40px;
