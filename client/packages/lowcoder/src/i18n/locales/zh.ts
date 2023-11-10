@@ -1907,7 +1907,7 @@ userAuth: {
     passwordCheckLength: "至少 {min} 个字符",
     passwordCheckContainsNumberAndLetter: "必须包含字母和数字",
     passwordCheckSpace: "不能包含空格字符",
-    welcomeTitle: "🇨🇳 欢迎使用 {productName} 🇨🇳",
+    welcomeTitle: "欢迎使用 {productName}",
     inviteWelcomeTitle: "{username} 邀请您登录 {productName}",
     terms: "条款",
     privacy: "隐私政策",

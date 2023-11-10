@@ -10,6 +10,7 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "scripts": {
+    "dev": "cross-env LOWCODER_API_SERVICE_URL=https://aidenvwb.cpolar.cn yarn start",
     "start": "yarn workspace lowcoder start",
     "start:ee": "REACT_APP_EDITION=enterprise yarn workspace lowcoder start",
     "start:ee-global": "REACT_APP_EDITION=enterprise-global yarn workspace lowcoder start",
@@ -76,6 +77,7 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "antd-mobile": "^5.28.0",
     "chalk": "4",
+    "cross-env": "^7.0.3",
     "number-precision": "^1.6.0",
     "react-player": "^2.11.0",
     "tui-image-editor": "^3.15.3"

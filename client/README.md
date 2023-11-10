@@ -1,5 +1,7 @@
 # Lowcoder frontend
 
+`cross-env LOWCODER_API_SERVICE_URL=https://aidenvwb.cpolar.cn yarn start`
+
 ## How to contribute
 
 ### Start a local backend server
